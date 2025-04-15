@@ -7,7 +7,7 @@ spring:
         - id:  kube-land
           uri: http://localhost:8082
           predicates:
-            - Path=/**
+            - Path=/auth/**
           filters:
             - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
         - id: kube-ms1
@@ -19,9 +19,9 @@ spring:
         - id: ui
           uri: http://localhost:3000
           predicates:
-            - Path=/**
+            - Path=/ui/**
           filters:
-            - RewritePath=/(?<segment>.*), /${segment}
+            - RewritePath=/ui/(?<segment>.*), /${segment}
         - id: ui-js-assets
           uri: http://localhost:3000
           predicates:
